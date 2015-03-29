@@ -121,8 +121,15 @@ module.exports = {
 
     clearDeviceDiscoveredListener: function (success, failure) {
         cordova.exec(null, failure, "BluetoothSerial", "clearDeviceDiscoveredListener", []);
-    }
+    },
 
+    pair: function (macAddress, pin, success, failure) {
+        cordova.exec(success, failure, "BluetoothSerial", "pair", [macAddress, pin]);
+    },
+
+    unpair: function (macAddress, success, failure) {
+        cordova.exec(success, failure, "BluetoothSerial", "unpair", [macAddress]);
+    }
 };
 
 var stringToArrayBuffer = function(str) {
